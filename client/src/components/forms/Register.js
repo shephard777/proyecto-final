@@ -4,21 +4,21 @@ import { authContext } from "../context/authContext/AuthContext";
 
 const Register = () => {
   const { registerUserAction, error } = useContext(authContext);
-  //form data
+  //datos del formulario
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     password: "",
   });
-  //Destructure
+  //Desestructuración
   const { fullname, email, password } = formData;
 
-  //onChange
+  //Cambio
   const onChangeInput = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //Handle submit
+  //Manejar el envío
   const onSubmitHandler = e => {
     e.preventDefault();
     if (!email || !password || !fullname) {

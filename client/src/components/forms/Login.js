@@ -3,23 +3,23 @@ import { authContext } from "../context/authContext/AuthContext";
 
 const Login = () => {
   const { loginUserAction, userAuth } = useContext(authContext);
-  //form data
+  //datos del formulario
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const { email, password } = formData;
 
-  //onChnage
+  //Cambio
   const onChangeInput = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //submit
+  //Submit
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    //dispatch action
+    //acción de envío
     loginUserAction(formData);
   };
   console.log(userAuth);
