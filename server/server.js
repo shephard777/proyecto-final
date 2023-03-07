@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("./config/dbConnect")
 const accountsRouter = require("./routes/accounts/accountsRouter");
 const transactionsRouter = require("./routes/transactions/transactionsRouter");
@@ -8,7 +9,10 @@ const {AppErr, appErr} = require("./utils/appErr")
 const app = express();
 
 //!middlewares
-app.use(express.json()); //pass incoming data
+app.use(express.json());
+//?corse middlewares
+app.use(cors());
+//pass incoming data
 //?routes
 //usuario router
 app.use("/api/v1/users", usersRouter)

@@ -3,23 +3,23 @@ import { authContext } from "../context/authContext/AuthContext";
 
 const Login = () => {
   const { loginUserAction, userAuth } = useContext(authContext);
-  //datos del formulario
+  //form data
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const { email, password } = formData;
 
-  //Cambio
+  //onChnage
   const onChangeInput = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //Submit
+  //submit
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    //acción de envío
+    //dispatch action
     loginUserAction(formData);
   };
   console.log(userAuth);
@@ -52,7 +52,7 @@ const Login = () => {
                   name="email"
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lgshadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="email"
-                  placeholder="ejemplo@gmail.com"
+                  placeholder="i-novotek@gmail.com"
                 />
               </div>
               <div className="mb-4">
