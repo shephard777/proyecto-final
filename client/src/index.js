@@ -6,15 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import AuthContextProvider from './components/context/authContext/AuthContext';
 import { TransactionContextProvider } from './components/context/transactionContext/TransactionsContext';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthContextProvider>
-  <TransactionContextProvider>
-    <React.StrictMode>
+    <TransactionContextProvider>
       <App />
-    </React.StrictMode>
-  </TransactionContextProvider>
-    
+    </TransactionContextProvider>
   </AuthContextProvider>
 );
 

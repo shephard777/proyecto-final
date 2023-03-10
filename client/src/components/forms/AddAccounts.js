@@ -1,7 +1,8 @@
-/* eslint-disable no-undef */
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
+import { accountContext } from "../context/accountContext/AccountContext";
+
 export default function AddAccount() {
-  const { createAccountAction } = useContext(accountContext);
+  const { createAccountAction, error } = useContext(accountContext);
   const [formData, setFormData] = useState({
     name: "",
     accountType: "",
@@ -9,16 +10,17 @@ export default function AddAccount() {
     notes: "",
   });
 
-  //gestionar el cambio de formulario
-  const handleChange = (e) => {
+  //handle form change
+  const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //gestionar el envío de formularios
-  const handleSubmit = (e) => {
+  //handle form submit
+  const handleSubmit = e => {
     e.preventDefault();
     createAccountAction(formData);
   };
+
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -27,26 +29,26 @@ export default function AddAccount() {
             Add Account
           </h2>
         </div>
-        
+
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-4 shadow: sm:rounded-lg sm:px-10">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">
-                            Name
-                        </label>
-                        <div className="mt-1">
-                            <input
-                            value={formData.name}
-                            onChange={handleChange}
-                            name="name"
-                            type="text"
-                            className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            />
-                        </div>
-                    </div>
-                    
-                    <div>
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
+                <div className="mt-1">
+                  <input
+                    value={formData.name}
+                    onChange={handleChange}
+                    name="name"
+                    type="text"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Initial Deposit ($)
                 </label>
@@ -60,8 +62,8 @@ export default function AddAccount() {
                   />
                 </div>
               </div>
-                    
-                    <div>
+
+              <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Account Type
                 </label>
@@ -86,7 +88,6 @@ export default function AddAccount() {
                   <option value="Uncategorized">Uncategorized</option>
                 </select>
               </div>
-              
               <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Add Note
@@ -102,7 +103,6 @@ export default function AddAccount() {
                   />
                 </div>
               </div>
-              
               <div>
                 <button
                   type="submit"
@@ -111,8 +111,8 @@ export default function AddAccount() {
                   Add New Transaction
                 </button>
               </div>
-                </form>
-            </div>
+            </form>
+          </div>
         </div>
       </div>
     </>
