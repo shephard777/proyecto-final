@@ -1,24 +1,24 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { authContext } from "../context/authContext/AuthContext";
+import { authContext } from "../Context/AuthContext/AuthContext";
 
 const Register = () => {
   const { registerUserAction, error } = useContext(authContext);
-  //datos del formulario
+  //form data
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
     password: "",
   });
-  //Desestructuración
+  //Destructure
   const { fullname, email, password } = formData;
 
-  //Cambio
+  //onChange
   const onChangeInput = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  //Manejar el envío
+  //Handle submit
   const onSubmitHandler = e => {
     e.preventDefault();
     if (!email || !password || !fullname) {
@@ -51,7 +51,7 @@ const Register = () => {
                   name="email"
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-sm placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="email"
-                  placeholder="ejemplo@gmail.com"
+                  placeholder="i-novotek@gmail.com"
                 />
               </div>
               <div className="mb-6">
@@ -67,7 +67,7 @@ const Register = () => {
                   name="fullname"
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-sm placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
                   type="text"
-                  placeholder="Superman"
+                  placeholder="I-Nooovotek Academy"
                 />
               </div>
               <div className="mb-4">

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthContextProvider from './components/context/authContext/AuthContext';
-import { TransactionContextProvider } from './components/context/transactionContext/TransactionsContext';
+import AuthContextProvider from './components/Context/AuthContext/AuthContext';
+import { TransactionContextProvider } from './components/Context/TransactionContext/TransactionsContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

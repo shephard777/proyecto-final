@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { transactionContext } from "../context/transactionContext/TransactionsContext";
+import { transactionContext } from "../Context/TransactionContext/TransactionsContext";
 
 export default function AddTransaction() {
   const { id } = useParams();

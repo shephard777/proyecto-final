@@ -1,22 +1,21 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import AccountDashboard from "./components/dashboard/AccountDashboard";
-import AddTransaction from "./components/forms/AddTransaction";
-import Login from "./components/forms/Login";
-import Register from "./components/forms/Register";
-import HomePage from "./components/homepage/HomePage";
-import Navbar from "./components/navbar/Navbar";
-
+import HomePage from "./components/HomePage/HomePage";
+import Login from "./components/Forms/Login";
+import Register from "./components/Forms/Register";
+import AddTransaction from "./components/Forms/AddTransaction";
+import AccountDashboard from "./components/Dashbaord/AccountDashboard";
+import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <BrowserRouter>
-    <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/add-transaction" element={<AddTransaction />} />
-        <Route path="/dashboard" element={<AccountDashboard />} />
-      </Routes>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/add-transaction" element={<AddTransaction />} />
+          <Route path="/dashboard" element={<AccountDashboard />} />
+        </Routes>
     </BrowserRouter>
   );
 }

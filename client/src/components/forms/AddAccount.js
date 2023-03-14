@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { accountContext } from "../context/accountContext/AccountContext";
+import { accountContext } from "../context/AccountContext/AccountContext";
 
 export default function AddAccount() {
   const { createAccountAction, error } = useContext(accountContext);

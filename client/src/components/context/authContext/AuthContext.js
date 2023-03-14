@@ -8,7 +8,7 @@ import {
   LOGOUT,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-} from "./AuthActionTypes";
+} from "./authActionTypes";
 import { API_URL_USER } from "../../../utils/apiURL";
 
 //auth context
@@ -44,7 +44,7 @@ const reducer = (state, action) => {
 
     case LOGIN_SUCCESS:
       //Add user to localstorage
-      localStorage.setItem("userAuth", JSON.stringify(payload));
+     
       return {
         ...state,
         loading: false,
@@ -91,6 +91,7 @@ const reducer = (state, action) => {
 //Provider
 const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+  console.log(state.profile)
 
   //login action
   const loginUserAction = async formData => {
@@ -148,15 +149,15 @@ const AuthContextProvider = ({ children }) => {
 
   //Profile Action
   const fetchProfileAction = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${state?.userAuth?.token}`,
+      },
+    };
+    const res = await axios.get(`${API_URL_USER}/profile`, config);
+    console.log(res);
     try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${state?.userAuth?.token}`,
-        },
-      };
-      const res = await axios.get(`${API_URL_USER}/profile`, config);
-      console.log(res);
       if (res?.data) {
         dispatch({
           type: FETCH_PROFILE_SUCCESS,

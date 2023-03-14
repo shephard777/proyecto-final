@@ -4,8 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import logo from "../../assets/img1.jpeg";
 import { Link } from "react-router-dom";
-import { authContext } from "../context/authContext/AuthContext";
-
+import { authContext } from "../Context/AuthContext/AuthContext";
 
 export default function Navbar() {
   const { logoutUserAction, token } = useContext(authContext);
@@ -32,12 +31,12 @@ export default function Navbar() {
                   <img
                     className="block h-8 w-auto lg:hidden"
                     src={logo}
-                    alt="registro ingreso/gasto"
+                    alt="i-novotek"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
                     src={logo}
-                    alt="Registro de ingresos/gastos"
+                    alt="i-novotek"
                   />
                 </div>
                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
@@ -122,7 +121,7 @@ export default function Navbar() {
                 Home
               </Link>
 
-              {token && (
+              {!token && (
                 <Link
                   to="/dashboard"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -151,7 +150,7 @@ export default function Navbar() {
                 )}
               </>
 
-              {token && (
+              {!token && (
                 <button
                   onClick={logoutUserAction}
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
